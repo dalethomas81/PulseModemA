@@ -206,6 +206,12 @@
          
          //NSLog(@"playWav! %@", url);
          [self playWav: url];
+         
+         /*DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // Change `2.0` to the desired number of seconds.
+             // Code you want to be delayed
+         }*/
+         
+         //[self playWav: url];
      }];
 
 //    [self addObserver:self forKeyPath:@"currentUserLocation" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
@@ -500,6 +506,22 @@
 - (void)playWav:(NSString *)url {
     //AVAudioSession *session = [AVAudioSession sharedInstance];
     
+    //play beep to trigger vox
+    NSString *soundFilePath =
+    [[NSBundle mainBundle] pathForResource: @"beep-08b"
+                                    ofType: @"wav"];
+    NSURL *beepURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL: beepURL
+                                                              error: nil];
+    [self.audioPlayer setDelegate: self];
+    [self.audioPlayer prepareToPlay];
+    [self.audioPlayer play];
+    // wait till beep is finished
+    while (self.audioPlayer.isPlaying){
+    }
+    // add a delay before sending aprs
+    sleep(1.0); // in seconds
+    // play aprs
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL: [NSURL fileURLWithPath: url] error: nil];
     [self.audioPlayer setDelegate: self];
     [self.audioPlayer prepareToPlay];

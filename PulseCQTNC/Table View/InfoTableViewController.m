@@ -185,7 +185,7 @@
         
 //        UINavigationController *u = (UINavigationController *)segue.destinationViewController;
         ManualViewController *v = (ManualViewController *)segue.destinationViewController; //(InfoViewController *)u.topViewController;
-        v.d = d;
+        //v.d = d;
     }
 }
 

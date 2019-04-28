@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D700838227553200048CA50 /* beep-08b.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2D7008372275531F0048CA50 /* beep-08b.wav */; };
+		2D700839227553C10048CA50 /* beep-08b.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D7008372275531F0048CA50 /* beep-08b.wav */; };
 		9F1A14DA21184F1E007E5990 /* aprs-symbols in Resources */ = {isa = PBXBuildFile; fileRef = 9F1A14D821184F1E007E5990 /* aprs-symbols */; };
 		9F1C46D2210DF05C00C63D9A /* APRSSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1C46D1210DF05C00C63D9A /* APRSSplitViewController.swift */; };
 		9F1C46D9210E013100C63D9A /* APRSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1C46D8210E013100C63D9A /* APRSTableViewController.m */; };
@@ -189,8 +191,9 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstSubfolderSpec = 16;
 			files = (
+				2D700839227553C10048CA50 /* beep-08b.wav in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +201,7 @@
 
 /* Begin PBXFileReference section */
 		10A04A3514091925211ED3BF /* libPods-PulseCQTNC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PulseCQTNC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D7008372275531F0048CA50 /* beep-08b.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "beep-08b.wav"; sourceTree = "<group>"; };
 		7539CCEB01A86CCA529202AE /* Pods-PulseCQTNC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseCQTNC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PulseCQTNC/Pods-PulseCQTNC.debug.xcconfig"; sourceTree = "<group>"; };
 		8BD576340D8C7A3F73AD6675 /* Pods-PulseCQTNC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseCQTNC.release.xcconfig"; path = "Pods/Target Support Files/Pods-PulseCQTNC/Pods-PulseCQTNC.release.xcconfig"; sourceTree = "<group>"; };
 		9F1A14D821184F1E007E5990 /* aprs-symbols */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "aprs-symbols"; sourceTree = "<group>"; };
@@ -1063,6 +1067,7 @@
 		9FE816A320775EAB008AACA7 /* PulseCQTNC */ = {
 			isa = PBXGroup;
 			children = (
+				2D7008372275531F0048CA50 /* beep-08b.wav */,
 				9F753BDA21685A9A0098173E /* README.md */,
 				9F8C131121066550004F7E65 /* Podfile */,
 				9FB26470207DF4E200EDE2BB /* PulseCQAPRS.entitlements */,
@@ -1269,6 +1274,7 @@
 				9F7FF09921072518008E0AA5 /* tarbar_transmit.png in Resources */,
 				9FB8DED1210B60210086312D /* tarbar_cloud@2x.png in Resources */,
 				9F1A14DA21184F1E007E5990 /* aprs-symbols in Resources */,
+				2D700838227553200048CA50 /* beep-08b.wav in Resources */,
 				9F7FF0A32107268B008E0AA5 /* tarbar_map.png in Resources */,
 				9FACE5E321058C1300D121AB /* gen-ng.pro in Resources */,
 				9F7FF09A21072518008E0AA5 /* tarbar_transmit@2x.png in Resources */,
@@ -1611,6 +1617,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1665,6 +1672,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1705,7 +1713,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PulseCQTNC/PulseCQTNC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -1746,7 +1754,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "PulseCQ TNC AppStore";
 				SWIFT_OBJC_BRIDGING_HEADER = "PulseCQTNC/PulseCQTNC-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s";
