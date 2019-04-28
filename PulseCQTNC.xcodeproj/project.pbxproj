@@ -1686,7 +1686,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = 362TGD3M6V;
+				DEVELOPMENT_TEAM = Q942MHAE72;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PulseCQTNC/PulseCQAPRS-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1709,7 +1709,7 @@
 					/opt/local/lib,
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pulsely.pulsecq.tnc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pulsely.pulsecq.tnc.dale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PulseCQTNC/PulseCQTNC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1750,7 +1750,7 @@
 					"$(inherited)",
 					/opt/local/lib,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pulsely.pulsecq.tnc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pulsely.pulsecq.tnc.dale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "PulseCQ TNC AppStore";
 				SWIFT_OBJC_BRIDGING_HEADER = "PulseCQTNC/PulseCQTNC-Bridging-Header.h";
