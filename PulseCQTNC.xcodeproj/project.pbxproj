@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D700838227553200048CA50 /* beep-08b.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2D7008372275531F0048CA50 /* beep-08b.wav */; };
 		2D700839227553C10048CA50 /* beep-08b.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D7008372275531F0048CA50 /* beep-08b.wav */; };
+		2D70083E227580FD0048CA50 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D70083D227580FD0048CA50 /* Info.plist */; };
 		9F1A14DA21184F1E007E5990 /* aprs-symbols in Resources */ = {isa = PBXBuildFile; fileRef = 9F1A14D821184F1E007E5990 /* aprs-symbols */; };
 		9F1C46D2210DF05C00C63D9A /* APRSSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1C46D1210DF05C00C63D9A /* APRSSplitViewController.swift */; };
 		9F1C46D9210E013100C63D9A /* APRSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1C46D8210E013100C63D9A /* APRSTableViewController.m */; };
@@ -202,6 +203,7 @@
 /* Begin PBXFileReference section */
 		10A04A3514091925211ED3BF /* libPods-PulseCQTNC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PulseCQTNC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D7008372275531F0048CA50 /* beep-08b.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "beep-08b.wav"; sourceTree = "<group>"; };
+		2D70083D227580FD0048CA50 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7539CCEB01A86CCA529202AE /* Pods-PulseCQTNC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseCQTNC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PulseCQTNC/Pods-PulseCQTNC.debug.xcconfig"; sourceTree = "<group>"; };
 		8BD576340D8C7A3F73AD6675 /* Pods-PulseCQTNC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulseCQTNC.release.xcconfig"; path = "Pods/Target Support Files/Pods-PulseCQTNC/Pods-PulseCQTNC.release.xcconfig"; sourceTree = "<group>"; };
 		9F1A14D821184F1E007E5990 /* aprs-symbols */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "aprs-symbols"; sourceTree = "<group>"; };
@@ -442,7 +444,6 @@
 		9FE816C220775EAE008AACA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FE816C720775EAE008AACA7 /* PulseCQTNCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PulseCQTNCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE816CB20775EAE008AACA7 /* PulseCQAPRSUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PulseCQAPRSUITests.m; sourceTree = "<group>"; };
-		9FE816CD20775EAE008AACA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FED1514210CD68E0060ABFA /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		9FED1515210CD68E0060ABFA /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		9FED1517210D887E0060ABFA /* PulseCQTNC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PulseCQTNC-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -1097,8 +1098,8 @@
 		9FE816CA20775EAE008AACA7 /* PulselyAPRSUITests */ = {
 			isa = PBXGroup;
 			children = (
+				2D70083D227580FD0048CA50 /* Info.plist */,
 				9FE816CB20775EAE008AACA7 /* PulseCQAPRSUITests.m */,
-				9FE816CD20775EAE008AACA7 /* Info.plist */,
 			);
 			path = PulselyAPRSUITests;
 			sourceTree = "<group>";
@@ -1321,6 +1322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D70083E227580FD0048CA50 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1709,7 +1711,7 @@
 					/opt/local/lib,
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pulsely.pulsecq.tnc.dale;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pulsely.pulsecq.tnc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PulseCQTNC/PulseCQTNC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1750,7 +1752,7 @@
 					"$(inherited)",
 					/opt/local/lib,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pulsely.pulsecq.tnc.dale;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pulsely.pulsecq.tnc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "PulseCQ TNC AppStore";
 				SWIFT_OBJC_BRIDGING_HEADER = "PulseCQTNC/PulseCQTNC-Bridging-Header.h";
@@ -1767,7 +1769,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 362TGD3M6V;
+				DEVELOPMENT_TEAM = Q942MHAE72;
 				INFOPLIST_FILE = PulseCQAPRSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1787,7 +1789,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 362TGD3M6V;
+				DEVELOPMENT_TEAM = Q942MHAE72;
 				INFOPLIST_FILE = PulseCQAPRSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1805,8 +1807,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 362TGD3M6V;
+				DEVELOPMENT_TEAM = Q942MHAE72;
 				INFOPLIST_FILE = PulseCQAPRSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1824,8 +1827,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 362TGD3M6V;
+				DEVELOPMENT_TEAM = Q942MHAE72;
 				INFOPLIST_FILE = PulseCQAPRSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
