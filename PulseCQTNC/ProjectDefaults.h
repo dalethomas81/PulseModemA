@@ -22,7 +22,7 @@
 //#define NOTIFICATION_USER_UNVERIFIED @"NOTIFICATION_USER_UNVERIFIED"
 
 #define APRS_COMMENT_MAXLENGTH 40       // maximum length of the message field
-#define ENABLE_AUDIO_TEST_RAW 0         // Whether to show a test decode of APRS Audio message from output.raw
+#define ENABLE_AUDIO_TEST_RAW 1         // Whether to show a test decode of APRS Audio message from output.raw
 
 #define KEYCHAIN_CALLSIGN @"callsign"
 #define KEYCHAIN_PASSCODE @"passcode"

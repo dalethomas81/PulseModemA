@@ -355,6 +355,9 @@ void hdlc_init(struct demod_state *s)
 
 void hdlc_rxbit(struct demod_state *s, int bit)
 {
+    // here we keep pushing the latest rx bit into the rxbitstream
+    // if we see a 01111110 (0x7e) then we have found a tilde (~) and that means
+    // we have a message
 	s->l2.hdlc.rxbitstream <<= 1;
 	s->l2.hdlc.rxbitstream |= !!bit;
 	if ((s->l2.hdlc.rxbitstream & 0xff) == 0x7e) {

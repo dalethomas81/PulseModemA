@@ -61,11 +61,15 @@ static void afsk12_init(struct demod_state *s)
 
 	hdlc_init(s);
 	memset(&s->l1.afsk12, 0, sizeof(s->l1.afsk12));
+    // create waveform of a binary 1 (mark) for comparison later
+    // this waveform will be 1200hz
 	for (f = 0, i = 0; i < CORRLEN; i++) {
 		corr_mark_i[i] = cos(f);
 		corr_mark_q[i] = sin(f);
 		f += 2.0*M_PI*FREQ_MARK/FREQ_SAMP;
 	}
+    // create wavefore of a binary 0 (space) for comparision later
+    // this waveform will be 2200hz
 	for (f = 0, i = 0; i < CORRLEN; i++) {
 		corr_space_i[i] = cos(f);
 		corr_space_q[i] = sin(f);
@@ -103,8 +107,8 @@ static void afsk12_demod(struct demod_state *s, buffer_t buffer, int length)
         //char a = '0'+(s->l1.afsk12.dcd_shreg & 1);
 		verbprintf(10, "%c", '0'+(s->l1.afsk12.dcd_shreg & 1));
         
-//        NSString *sss = [NSString stringWithFormat: @"%c", a];
-//        [[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
+        //NSString *sss = [NSString stringWithFormat: @"%c", a];
+        //[[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
 
 		/*
 		 * check if transition
@@ -123,6 +127,7 @@ static void afsk12_demod(struct demod_state *s, buffer_t buffer, int length)
 			curbit = (s->l1.afsk12.lasts ^ 
 				  (s->l1.afsk12.lasts >> 1) ^ 1) & 1;
 			verbprintf(9, " %c ", '0'+curbit);
+            //fprintf(stderr,"%c", '0'+curbit);
 //            sss = [NSString stringWithFormat: @" %c ", '0'+curbit];
 //            [[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
             

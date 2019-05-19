@@ -971,7 +971,9 @@ intypefound:
     // Decide using raw input, or file
     if (ENABLE_AUDIO_TEST_RAW) {
         const char *filename = [[[NSBundle mainBundle] pathForResource: @"output" ofType: @"raw"] cStringUsingEncoding: NSUTF8StringEncoding];
-        input_file_wav(sample_rate, overlap, filename, input_type);
+        if(filename){
+            input_file_wav(sample_rate, overlap, filename, input_type);
+        }
     }
     // Don't need this anymore
     //[self input_ios];
