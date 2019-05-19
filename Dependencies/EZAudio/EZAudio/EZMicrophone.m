@@ -1022,16 +1022,24 @@ static OSStatus EZAudioMicrophoneCallback(void                       *inRefCon,
         convertedBuffer = (float*)malloc(sizeof(float) * numFrames);
     }
     SInt16 *inputFrames = (SInt16*)(info->audioBufferList->mBuffers->mData);
+    bool ThresholdMet = false; // see if a minimum volume is met
+    float Threshold = 1500.0;
     for(int i = 0; i < numFrames; i++) {
         convertedBuffer[i] = (float)inputFrames[i] / 32768.0f;
+        //if ((inputFrames[i] > Threshold) || (inputFrames[i] < Threshold)) ThresholdMet = true;
+        if (inputFrames[i] > Threshold) ThresholdMet = true;
+        //fprintf(stderr, "%f\n",(float)inputFrames[i]);
     }
     
-    for (int i = 0; (unsigned int) i <  NUMDEMOD; i++)
-        if (MASK_ISSET(i) && dem[i]->demod)
-        {
-            buffer_t b = {inputFrames, convertedBuffer};
-            dem[i]->demod(dem_st+i, b, numFrames);
-        }
+    if (ThresholdMet){
+        for (int i = 0; (unsigned int) i <  NUMDEMOD; i++)
+            if (MASK_ISSET(i) && dem[i]->demod)
+            {
+                buffer_t b = {inputFrames, convertedBuffer};
+                dem[i]->demod(dem_st+i, b, numFrames);
+                //fprintf(stderr, "Done demod\n");
+            }
+    }
 
     
     //

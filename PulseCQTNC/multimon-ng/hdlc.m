@@ -86,30 +86,30 @@ int aprs_mode = 0;
 
 static void aprs_print_ax25call(unsigned char *call, int is_repeater)
 {
-    //NSString *sss;
+    NSString *sss;
     
 	int i;
 	for (i = 0; i < 6; i++)
         if ((call[i] &0xfe) != 0x40) {
 			verbprintf(0, "%c",call[i] >> 1);
             
-            //sss = [NSString stringWithFormat: @"%c", call[i] >> 1];
-            //[[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
+            sss = [NSString stringWithFormat: @"%c", call[i] >> 1];
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
         }
 	int ssid = (call[6] >> 1) & 0xf;
     if (ssid) {
 		verbprintf(0, "-%u",ssid);
         
-        //sss = [NSString stringWithFormat: @"-%u",ssid];
-        //[[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
+        sss = [NSString stringWithFormat: @"-%u",ssid];
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
 
     }
 	// hack: only display "*" on the last repeater, as opposed to all that already repeated
     if (is_repeater && (call[6] & 0x80)) {
         verbprintf(0, "*");
         
-        //sss = @"*";
-        //[[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
+        sss = @"*";
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
 
     }
 }
@@ -130,15 +130,15 @@ static void aprs_disp_packet(unsigned char *bp, unsigned int len)
 	verbprintf(0, "APRS: ");
     
     // NSNotification didn't receieve???
-    //NSString *sss = @"APRS: ";
-    //[[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
+    NSString *sss = @"APRS: ";
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
     
 	// source call
 	aprs_print_ax25call(&bp[7], 0);
 	verbprintf(0, ">");
     
-    //sss = @">";
-    //[[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
+    sss = @">";
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
 
     
 	// tocall
@@ -150,8 +150,8 @@ static void aprs_disp_packet(unsigned char *bp, unsigned int len)
         if ((!(bp[-1] & 1)) && (len >= 7)) {
 			verbprintf(0, ",");
             
-            //sss = @",";
-            //[[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
+            sss = @",";
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
 
         }
 		aprs_print_ax25call(&bp[0], 1);
@@ -160,8 +160,8 @@ static void aprs_disp_packet(unsigned char *bp, unsigned int len)
 	}
 	verbprintf(0, ":");
     
-    //sss = @":";
-    //[[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
+    sss = @":";
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
     
 	// end of header
 	bp += 2;
@@ -171,15 +171,15 @@ static void aprs_disp_packet(unsigned char *bp, unsigned int len)
 	while (len) {
 		verbprintf(0, "%c",*bp++);
         
-        //sss = [NSString stringWithFormat: @"%c",*bp];
-        //[[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
+        sss = [NSString stringWithFormat: @"%c",*bp];
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
 
 		len--;
 	}
 	verbprintf(0, "\n");
     
-    //sss = @"\n";
-    //[[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
+    sss = @"\n";
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"APRS_NEW_CHAR" object:nil userInfo: @{  @"message" : sss}];
 
 }
 
@@ -192,7 +192,7 @@ static void ax25_disp_packet(struct demod_state *s, unsigned char *bp, unsigned 
 		return;
 #if 1
 	if (!check_crc_ccitt(bp, len))
-		return;
+		//return;
 #endif
 	len -= 2;
         if (bp[1] & 1) {
@@ -355,6 +355,7 @@ void hdlc_init(struct demod_state *s)
 
 void hdlc_rxbit(struct demod_state *s, int bit)
 {
+    fprintf(stderr, "%d",bit);
     // here we keep pushing the latest rx bit into the rxbitstream
     // if we see a 01111110 (0x7e) then we have found a tilde (~) and that means
     // we have a message
