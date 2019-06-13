@@ -88,10 +88,10 @@ static void ufsk12_demod(struct demod_state *s, buffer_t buffer, int length)
 		s->l1.ufsk12.subsamp = 0;
 	}
 	for (; length >= SUBSAMP; length -= SUBSAMP, buffer.fbuffer += SUBSAMP) {
-		f = 	fsqr(mac(buffer.fbuffer, corr_mark_i, CORRLEN)) +
-			fsqr(mac(buffer.fbuffer, corr_mark_q, CORRLEN)) -
-			fsqr(mac(buffer.fbuffer, corr_space_i, CORRLEN)) -
-			fsqr(mac(buffer.fbuffer, corr_space_q, CORRLEN));
+        f = fsqr(mac(buffer.fbuffer, corr_mark_i, CORRLEN)) +
+        fsqr(mac(buffer.fbuffer, corr_mark_q, CORRLEN)) -
+        fsqr(mac(buffer.fbuffer, corr_space_i, CORRLEN)) -
+        fsqr(mac(buffer.fbuffer, corr_space_q, CORRLEN));
 		s->l1.ufsk12.dcd_shreg <<= 1;
 		s->l1.ufsk12.dcd_shreg |= (f > 0);
 		verbprintf(10, "%c", '0'+(s->l1.ufsk12.dcd_shreg & 1));

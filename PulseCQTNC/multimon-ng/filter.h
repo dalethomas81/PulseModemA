@@ -113,8 +113,6 @@ static inline float mac(const float *a, const float *b, unsigned int size)
 	unsigned int i;
 
     for (i = 0; i < size; i++) {
-        //printf("a: %d, b: %d\n", a, b);
-
 		sum += (*a++) * (*b++);
     }
 	return sum;

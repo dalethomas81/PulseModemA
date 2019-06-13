@@ -89,6 +89,7 @@
 
 
 - (void)processMessage:(NSString *)aprs_message {
+    fprintf(stderr,"Message: %s\n", [aprs_message UTF8String]);
     if ([aprs_message hasPrefix: @"APRS: "]) {
         NSString *substring = [aprs_message substringFromIndex: 6];
         

@@ -1023,12 +1023,11 @@ static OSStatus EZAudioMicrophoneCallback(void                       *inRefCon,
     }
     SInt16 *inputFrames = (SInt16*)(info->audioBufferList->mBuffers->mData);
     bool ThresholdMet = false; // see if a minimum volume is met
-    float Threshold = 1500.0;
+    SInt16 Threshold = 1000;
     for(int i = 0; i < numFrames; i++) {
         convertedBuffer[i] = (float)inputFrames[i] / 32768.0f;
-        //if ((inputFrames[i] > Threshold) || (inputFrames[i] < Threshold)) ThresholdMet = true;
-        if (inputFrames[i] > Threshold) ThresholdMet = true;
-        //fprintf(stderr, "%f\n",(float)inputFrames[i]);
+        if ( (inputFrames[i] > Threshold) || (inputFrames[i] < (Threshold * -1)) ) ThresholdMet = true; // check if waveform is at least this
+        //fprintf(stderr, "input:%d converted:%f\n",inputFrames[i],convertedBuffer[i]);
     }
     
     if (ThresholdMet){

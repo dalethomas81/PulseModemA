@@ -122,7 +122,7 @@
     AudioStreamBasicDescription streamDescription;
     // You might want to replace this with a different value, but keep in mind that the
     // iPhone does not support all sample rates. 8kHz, 22kHz, and 44.1kHz should all work.
-    streamDescription.mSampleRate = 22050;
+    streamDescription.mSampleRate = 12000; //24000; //48000;//22050;
     // Yes, I know you probably want floating point samples, but the iPhone isn't going
     // to give you floating point data. You'll need to make the conversion by hand from
     // linear PCM <-> float.

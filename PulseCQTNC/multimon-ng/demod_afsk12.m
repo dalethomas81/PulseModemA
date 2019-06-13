@@ -38,7 +38,7 @@
 
 #define FREQ_MARK  1200
 #define FREQ_SPACE 2200
-#define FREQ_SAMP  22050
+#define FREQ_SAMP  12000 //24000 //48000 //22050
 #define BAUD       1200
 #define SUBSAMP    2
 

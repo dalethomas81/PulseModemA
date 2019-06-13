@@ -19,7 +19,7 @@
     NSMutableDictionary *d = [NSMutableDictionary dictionary];
     if ( packet->error_code )
     {
-        char *buffer = "";
+        //char *buffer = "";
         //printf("Failed to parse packet (%s): %d\n", [aprs_message UTF8String], *packet->error_code );
         [d setObject: @"error" forKey: @"parse_flag"];
     } else if ( packet->src_callsign ) {

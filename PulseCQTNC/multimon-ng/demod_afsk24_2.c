@@ -87,10 +87,10 @@ static void afsk24_2_demod(struct demod_state *s, buffer_t buffer, int length)
 	unsigned char curbit;
 
 	for (; length > 0; length--, buffer.fbuffer++) {
-		f = fsqr(mac(buffer.fbuffer, corr_mark_i, CORRLEN)) +
-			fsqr(mac(buffer.fbuffer, corr_mark_q, CORRLEN)) -
-			fsqr(mac(buffer.fbuffer, corr_space_i, CORRLEN)) -
-			fsqr(mac(buffer.fbuffer, corr_space_q, CORRLEN));
+        f = fsqr(mac(buffer.fbuffer, corr_mark_i, CORRLEN)) +
+        fsqr(mac(buffer.fbuffer, corr_mark_q, CORRLEN)) -
+        fsqr(mac(buffer.fbuffer, corr_space_i, CORRLEN)) -
+        fsqr(mac(buffer.fbuffer, corr_space_q, CORRLEN));
 		s->l1.afsk24.dcd_shreg <<= 1;
 		s->l1.afsk24.dcd_shreg |= (f > 0);
 		verbprintf(10, "%c", '0'+(s->l1.afsk24.dcd_shreg & 1));

@@ -268,9 +268,9 @@ static void eas_demod(struct demod_state *s, buffer_t buffer, int length)
     // each time. One correlator sample is output for each SUBSAMP symbols
     for (; length >= SUBSAMP; length -= SUBSAMP, buffer.fbuffer += SUBSAMP) {
         f = fsqr(mac(buffer.fbuffer, eascorr_mark_i, CORRLEN)) +
-            fsqr(mac(buffer.fbuffer, eascorr_mark_q, CORRLEN)) -
-            fsqr(mac(buffer.fbuffer, eascorr_space_i, CORRLEN)) -
-            fsqr(mac(buffer.fbuffer, eascorr_space_q, CORRLEN));
+        fsqr(mac(buffer.fbuffer, eascorr_mark_q, CORRLEN)) -
+        fsqr(mac(buffer.fbuffer, eascorr_space_i, CORRLEN)) -
+        fsqr(mac(buffer.fbuffer, eascorr_space_q, CORRLEN));
         // f > 0 if a mark (wireline 1) is detected
         // keep the last few correlator samples in s->l1.eas.dcd_shreg
         // when we've synchronized to the bit transitions, the dcd_shreg
